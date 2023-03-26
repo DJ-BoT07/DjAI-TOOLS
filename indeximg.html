@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>Dall-E Webapp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styleimg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .fa-codepen{
+        font-size: 20px
+        ;
+      }
+    </style>
+  </header>
+
+  <body>
+    <header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
+        <div class="container-fluid d-flex align-items-center">
+          <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+            DALL-E CLONE
+          </h1>
+      
+  <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="text-sm-end"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M502.285 159.704l-234-156c-7.987-4.915-16.511-4.96-24.571 0l-234 156C3.714 163.703 0 170.847 0 177.989v155.999c0 7.143 3.714 14.286 9.715 18.286l234 156.022c7.987 4.915 16.511 4.96 24.571 0l234-156.022c6-3.999 9.715-11.143 9.715-18.286V177.989c-.001-7.142-3.715-14.286-9.716-18.285zM278 63.131l172.286 114.858-76.857 51.429L278 165.703V63.131zm-44 0v102.572l-95.429 63.715-76.857-51.429L234 63.131zM44 219.132l55.143 36.857L44 292.846v-73.714zm190 229.715L61.714 333.989l76.857-51.429L234 346.275v102.572zm22-140.858l-77.715-52 77.715-52 77.715 52-77.715 52zm22 140.858V346.275l95.429-63.715 76.857 51.429L278 448.847zm190-156.001l-55.143-36.857L468 219.132v73.714z"/></svg></div>
+        </div>
+      </header>
+      <div class="position-relative overflow-hidden p-3 p-md-5 md-3 text-center bg-body-secondary">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h1 class="fw">IMAGE GENERATION WEB-APP</h1
+          <p class="lead fw-normal">Our AI-powered image generation web app allows you to create unique and custom images effortlessly. Using state-of-the-art machine learning algorithms, our app provides a simple and intuitive interface for you to generate images based on your desired prompts</p>
+          
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+      </div>
+
+      <div class="b-example-divider bg-dark"></div>
+      <div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+              <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+              
+            </div>
+      
+            <div class="modal-body p-5 pt-0">
+              <form class="">
+                  <p class="fw-bold">API KEY :</p>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control rounded-3" id="api-key">
+                </div>
+                <div class="form-floating">
+                    <p class="fw-bold">ENTER THE IMAGE PROMPT :</p>
+                  <textarea name="" id="text-prompt" cols="30" rows="10" class="form-control rounded-3"></textarea>
+                </div>
+                <p class="fw-bold">IMAGE COUNT (1-4) :</p>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control rounded-3" id="image-count">
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" 
+                    id="radio-256"
+                    name="image-size"
+                    value="256"
+                    checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      256
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="radio-512" name="image-size" value="512">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      512
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="radio-1024" name="image-size" value="1024">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      1024
+                    </label>
+                  </div>
+                  <hr class="my-4">
+                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" id="button-request">Request</button>
+                <fieldset>
+                    <legend>Request Status</legend>
+                    <div>
+                      <p id="request-status">No request performed yet</p>
+                    </div>
+                  </fieldset>
+              
+                <hr class="my-4">
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <legend class="text-center fw-bold">Images</legend>
+      <div class="modal modal-sheet position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content rounded-4 shadow">
+            <div class="modal-header border-bottom-0 width" id="image-container">
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <p>© 2017–2022 Company-All Right Reserved OpenAi, Inc DJ Ltd
+      <hr class="my-4">
+    <script type="text/javascript" src="scriptimg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+  </body>
+</html>
