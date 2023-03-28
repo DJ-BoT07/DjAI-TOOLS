@@ -46,3 +46,9 @@
     border-color: rgb(192, 192, 192);
     border-image: initial;
 }
+
+.icon{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
