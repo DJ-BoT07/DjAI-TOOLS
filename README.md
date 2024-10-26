@@ -1,3 +1,5 @@
+"Was My First Ever Project of my Web Dev Journey so just adding it as an Memory (Not working coz I dont have money to pay Chat GPT....ya i can add Gemini but I am Lazy)"
+
 Welcome to AI Playground - Where you Meets WebGpt and DALLE Clone! 🌌🤖
 AI Playground 
 
